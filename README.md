@@ -1,14 +1,21 @@
-#  Classification of cancerous cells with Support Vector Machine method
+#  Support Vector Machine method for classification of cancerous cells 
 
 ### Synopsis ###
 This project took place during the module _Neural networks_ at NUS (EE5904R).
-It consists of determining whether a breast cell of a given person is cancerous or not. The samples provided have been obtained by a Fine Needle Aspiration Biopsy and the resulting dataset is called 'Breast Cancer Wisconsin Dataset'.
+It consists of determining whether a breast cell of a given person is cancerous or not. The samples provided have been obtained by a Fine Needle Aspiration Biopsy and the resulting dataset is called 'Breast Cancer Wisconsin Dataset'. In order to accomplish the classification of benign cells from malign cells, a Support Vector Machine method is used. 
 
-In order to accomplish the classification of benign cells from malign cells, a Support Vector Machine method is used. Support Vector Machine (SVM) is a useful machine learning algorithm that can be used as a discriminative classifier. It consists of finding a hyperplane that divides a set of samples into two categories (here, benign and malign cells). 
+Support Vector Machine (SVM) is a useful machine learning algorithm that can be used as a discriminative classifier. It consists of finding a hyperplane that divides a set of samples into two categories (here, benign and malign cells). Finding an optimal hyperplane means finding the hyperplane that keeps samples as far away as possible from it, in order to make a _margin_ appear around the hyperplane (area without any samples inside). There are two types of margin:
+
+* _hard_ margin, with strictly no samples in the region of separation
+* _soft_ margin, with authorized samples in the region of separation. It normally leads to a better generalization of the model. 
+
+Samples on the margin are called _support vectors_. Finding a suitable hyperplane results from the resolution of an optimization problem (quadratic programming), whose formulation is not detailed here. The following figure illustrates the notion of hard and soft margin (2-dimensions case):
+
+<p align="center">
+  <img src="img/SVM_struct.png" alt="SVM margins (2D case)" />
+</p>
 
 The use of a kernel is sometimes needed to put the samples into a higher dimensional space and find a suitable hyperplane. Thus I tried different types of kernel such as linear kernel, polynomial kernel of different degrees or Radial Basis Function kernel.
-
-Finding an optimal hyperplane means finding the hyperplane that keeps samples as far away as possible from it, in order to make a _margin_ appear around the hyperplane (area without any samples inside). This margin can be _hard_, with strictly no samples between the hyperplane and the margin or _soft_, with authorized samples to lead to a better generalization of the model. Samples on the margin are called _support vectors_. Finding a suitable hyperplane results from the resolution of an optimization problem (quadratic programming), whose formulation is not detailed here.
 
 The SVM algorithm has been implemented on Matlab and doesn't use any existing library, with the following main steps:
 
@@ -32,11 +39,17 @@ Two main parameters have been tuned:
 
 Make the values of _p_ and _C_ vary gives the following results concerning the accuracy of the training set and the test set.
 
-![Accuracy of the training and test datasets againast the values of p and C](img/accuracy_graph.png)
+<p align="center">
+  <img src="img/accuracy_graph.png" alt="Accuracy of the training and test datasets againast the values of p and C" />
+</p>
 
 The accuracy is globally increasing when _p_ increases. Indeed, when _p_ increases the data are put into a higher dimensional space and are readily separated by a hyperplane.
 
+In a nutshell, Support Vector Machine method is an efficient algorithm for classification and can be interpreted in a geometric way, which is helpful to understand the method and the results obtained.
+
 ### Project content ###
+
+Programming language: Matlab
 
 Content of this project: 
 
