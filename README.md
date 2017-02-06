@@ -1,9 +1,26 @@
 #  Support Vector Machine method for classification of cancerous cells 
 
-### Synopsis ###
-This project took place during the module _Neural networks_ at NUS (EE5904R).
-It consists of determining whether a breast cell of a given person is cancerous or not. The samples provided have been obtained by a Fine Needle Aspiration Biopsy and the resulting dataset is called 'Breast Cancer Wisconsin Dataset'. In order to accomplish the classification of benign cells from malign cells, a Support Vector Machine method is used. 
+## Synopsis ##
 
+This project took place during the module _Neural networks_ at NUS (EE5904R).
+It consists of determining whether a breast cell of a given person is cancerous or not. 
+
+### Dataset ###
+The samples provided have been obtained by a Fine Needle Aspiration Biopsy and the resulting dataset is called ['Breast Cancer Wisconsin Dataset'](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)). The different features taken into account in this dataset are: 
+
+- nucleus radius
+- texture (standard deviation of gray-scale values)
+- perimeter 
+- area
+- smoothness (local variation in radius lengths) 
+- compactness
+- concavity
+- number of concave portions of the contour
+- symmmetry
+
+The nucleus of a cancerous cell is often larger and darker than of a normal cell. Moreover its shape and size is not uniform.
+
+### Support Vector Machine ###
 Support Vector Machine (SVM) is a useful machine learning algorithm that can be used as a discriminative classifier. It consists of finding a hyperplane that divides a set of samples into two categories (here, benign and malign cells). Finding an optimal hyperplane means finding the hyperplane that keeps samples as far away as possible from it, in order to make a _margin_ appear around the hyperplane (area without any samples inside). There are two types of margin:
 
 * _hard_ margin, with strictly no samples in the region of separation
@@ -23,7 +40,7 @@ The SVM algorithm has been implemented on Matlab and doesn't use any existing li
 2. find the support vectors by defining a criteria to select them [_coeff_discriminant_function.m_]
 3. test the model with a tesst dataset [_eval_discriminant_function.m_]
 
-### Results ###
+## Results ##
 
 Several cases have been tested:
 
@@ -47,11 +64,11 @@ The accuracy is globally increasing when _p_ increases. Indeed, when _p_ increas
 
 In a nutshell, Support Vector Machine method is an efficient algorithm for classification and can be interpreted in a geometric way, which is helpful to understand the method and the results obtained.
 
+## Project on GitHub ##
+
 ### Project content ###
 
 Programming language: Matlab
-
-Content of this project: 
 
 * files 'train.mat' and 'test.mat': training and test datasets
 * other Matlab files ('.m' extension): Matlab function and scripts to run the program
@@ -65,7 +82,7 @@ To make the program run:
 
 This Matlab code needs the Matlab function _quadprog_ to solve Quadratic Programming optimization problem.
 
-### Author ###
+## Author ##
 
 Mareva Brixy (marevabrixy@gmail.com)
 
